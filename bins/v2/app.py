@@ -45,6 +45,7 @@ class Application:
         self.window.setWindowTitle("Binary Insight")
         # window.setWindowIcon(QIcon(QPixmap('./resource/logo.png')))
         path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "resource", 'logo.png')
+
         self.window.setWindowIcon(QIcon(path))
         self.app.setWindowIcon(QIcon(path))
         self.window.show()

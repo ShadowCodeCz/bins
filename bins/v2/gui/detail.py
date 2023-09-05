@@ -66,6 +66,7 @@ class DetailWidget(QFrame):
                 block = parser.Block()
                 block.full_bin_value = bit.block.full_bin_value
                 block.name = bit.block.name
+                block.description = bit.block.description
                 block.blocks = bit.block.blocks
                 block.bits.append(bit)
                 block.range = range(block.bits[0].absolute_position, block.bits[-1].absolute_position + 1)
@@ -76,6 +77,7 @@ class DetailWidget(QFrame):
                 block = parser.Block()
                 block.full_bin_value = bit.block.full_bin_value
                 block.name = bit.block.name
+                block.description = bit.block.description
                 block.blocks = bit.block.blocks
                 block.bits.append(bit)
                 block.range = range(block.bits[0].absolute_position, block.bits[-1].absolute_position + 1)
@@ -191,6 +193,22 @@ class BlockTitleWidget(QFrame):
         self.model = data_model
 
         self.label.setText(self.block.name)
+        # https://forum.qt.io/topic/94641/how-to-easily-set-the-background-colour-of-a-tooltip
+        # https://coderslegacy.com/python/pyqt6-tooltip-on-mouse-hover/
+
+        # self.label.setToolTip(self.block.description)
+        # self.label.setToolTipDuration(1000)
+
+        self.setToolTipDuration(10000)
+        self.setToolTip(f"""<b>Description</b>
+        {self.block.description}
+
+        <b>Values</b>
+        {self.block.binary()}
+        {self.block.octal()}
+        {self.block.decimal()}
+        {self.block.hexadecimal()}
+        """.replace("\n", "<br/>"))
 
     def init_styles(self):
         self.set_styles()
@@ -216,6 +234,8 @@ class BlockExtendedDetailWidget(QFrame):
         self.model = None
         self.custom_layout = QVBoxLayout(self)
         self.label = QLabel()
+
+        self.label.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.init_layout()
         self.init_styles()

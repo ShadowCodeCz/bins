@@ -80,6 +80,9 @@ class OverviewWidget(QFrame):
         self.dec_label = basic.ValueWidget()
         self.hex_label = basic.ValueWidget()
 
+        self.bin_label.value.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.oct_label.value.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.dec_label.value.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
         self.hex_label.value.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.counter = 0

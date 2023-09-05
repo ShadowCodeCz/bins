@@ -1,5 +1,6 @@
 from . import template
 
+
 class Bit:
     def __init__(self, value, absolute_position, block):
         self.value = value
