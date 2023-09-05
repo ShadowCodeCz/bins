@@ -41,7 +41,7 @@ class Application:
         notification.parsers = self.parser.parsers.keys()
         self.notificator.notify(notification)
 
-        self.window.setStyleSheet("color: white; background-color: black")
+        # self.window.setStyleSheet("color: white; background-color: black")
         self.window.setWindowTitle("Binary Insight")
         # window.setWindowIcon(QIcon(QPixmap('./resource/logo.png')))
         path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "resource", 'logo.png')
