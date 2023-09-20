@@ -32,7 +32,7 @@ class Application:
         self.app = QApplication([])
 
         # Taskbar icon fix
-        my_app_id = 'mycompany.myproduct.subproduct.version'  # arbitrary string
+        my_app_id = 'shadowcode.bins.0.2'  # arbitrary string
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
 
         self.window = gui.AppWidget()
